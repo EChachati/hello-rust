@@ -30,9 +30,21 @@ fn get_data_from_user() {
     // string to an unsigned 8-bit integer (`u8`).
     let age_as_number: u8 = age.trim().parse().unwrap();
 
-    print!(
+    println!(
         "Hello {}. You are {} years old",
         name.trim().to_string(),
         age_as_number
     );
+
+    println!("{}", conditional_example(age_as_number));
+}
+
+fn conditional_example(age: u8) -> &'static str {
+    if age > 18 {
+        return "You are an adult";
+    } else if age == 18 {
+        return "You are barely an adult";
+    } else {
+        return "You are a child";
+    }
 }
